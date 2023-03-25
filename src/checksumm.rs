@@ -34,10 +34,10 @@ pub fn unwrap_raw(wrapped: &[u8]) -> Result<Vec<u8>, ()> {
 pub fn unwrap(wrapped: &[u8]) -> Result<Vec<u8>, ()> {
     for from in 0..wrapped.len() {
         for to in (0..wrapped.len()).rev() {
+            if to - from < 5 { break };
             if let Ok(unwrapped) = unwrap_raw(&wrapped[from..to+1]){
                 return Ok(unwrapped)
             }
-            if wrapped[to] != 0 { break }
         }
         if wrapped[from] != 0 { break }
     }
