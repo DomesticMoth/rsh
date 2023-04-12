@@ -45,7 +45,7 @@ pub fn unwrap(wrapped: &[u8]) -> Result<Vec<u8>, ()> {
 }
 
 #[cfg(test)]
-mod tests {
+mod cs_tests {
     use super::*;
 
     fn add_zeros(msg: &[u8], lead: usize, end: usize) -> Vec<u8> {
